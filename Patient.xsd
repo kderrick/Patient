@@ -12,9 +12,24 @@
 		<element name="dob" type="date"/>
 		<element name="gender" type="tns:Gender"/>
 		<element name="phone" type="string"/>
+		<element name="payment" type="tns:PaymentType"/>
 	
 	</sequence>
 	</complexType>
+	<complexType name="PaymentType">
+		<choice>
+			<element name="cash" type="int"></element>	
+			<element name="insurance" type="tns:Insurance"></element>	
+		</choice>
+	
+	</complexType>
+	<complexType name="Insurance">
+		<all>
+			<element name="provider" type="string" />
+			<element name="limit" type="int" />
+		</all>
+	</complexType>
+	
 	<simpleType name="ID">
 		<restriction base="int">
 			<pattern value="[0-9]*"></pattern>
